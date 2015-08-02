@@ -130,6 +130,16 @@ function pre_install(){
 
 # configure cert and key
 function get_key(){
+	rm ca.cert.pem
+	rm /usr/local/etc/ipsec.d/cacerts/ca.cert.pem
+	rm server.cert.pem
+	rm /usr/local/etc/ipsec.d/certs/server.cert.pem
+	rm server.pem
+	rm /usr/local/etc/ipsec.d/private/server.pem
+	rm client.cert.pem 
+	rm /usr/local/etc/ipsec.d/certs/client.cert.pem
+	rm client.pem
+	rm /usr/local/etc/ipsec.d/private/client.pem
 	cd $cur_dir
     if [ -f ca.pem ];then
         echo -e "ca.pem [\033[32;1mfound\033[0m]"
