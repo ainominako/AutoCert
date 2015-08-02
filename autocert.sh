@@ -12,7 +12,6 @@ function install_ikev2(){
 	get_system
 	pre_install
 	get_key
-	ipsec start
 	success_info
 }
 
