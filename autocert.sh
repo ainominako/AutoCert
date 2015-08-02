@@ -199,6 +199,7 @@ function success_info(){
 	echo -e ""
 	
 	uuencode client.cert.p12 client.cert.p12 | mail -s cert ainominako1203@yahoo.co.jp
+	ipsec restart
 }
 
 # Initialization step
