@@ -63,12 +63,49 @@ function get_system(){
 
 # Pre-installation settings
 function pre_install(){
-　　os=`1`
-　　os_str=`Xen、KVM`
-　  vps_ip=$IP
-　　my_cert_c=`com`
-　　my_cert_o=`myvpn`
-　　my_cert_cn=`VPN CA`
+	echo "#############################################################"
+	echo "# Install IKEV2 VPN for CentOS6.x (32bit/64bit) or Ubuntu"
+	echo "# Intro: http://quericy.me/blog/699"
+	echo "#"
+	echo "# Author:quericy"
+	echo "#"
+	echo "#############################################################"
+	echo ""
+    echo "please choose the type of your VPS(Xen、KVM: 1  ,  OpenVZ: 2):"
+    read -p "your choice(1 or 2):" os_choice
+    if [ "$os_choice" = "1" ]; then
+        os="1"
+		os_str="Xen、KVM"
+		else
+			if [ "$os_choice" = "2" ]; then
+				os="2"
+				os_str="OpenVZ"
+				else
+				echo "wrong choice!"
+				exit 1
+			fi
+    fi
+	echo "please input the ip (or domain) of your VPS:"
+    read -p "ip or domain(default_vale:${IP}):" vps_ip
+	if [ "$vps_ip" = "" ]; then
+		vps_ip=$IP
+	fi
+	echo "please input the cert country(C):"
+    read -p "C(default value:com):" my_cert_c
+	if [ "$my_cert_c" = "" ]; then
+		my_cert_c="com"
+	fi
+	echo "please input the cert organization(O):"
+    read -p "O(default value:myvpn):" my_cert_o
+	if [ "$my_cert_o" = "" ]; then
+		my_cert_o="myvpn"
+	fi
+	echo "please input the cert common name(CN):"
+    read -p "CN(default value:VPN CA):" my_cert_cn
+	if [ "$my_cert_cn" = "" ]; then
+		my_cert_cn="VPN CA"
+	fi
+	echo "####################################"
     get_char(){
         SAVEDSTTY=`stty -g`
         stty -echo
