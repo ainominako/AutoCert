@@ -63,12 +63,12 @@ function get_system(){
 
 # Pre-installation settings
 function pre_install(){
-　　$os="1"
-　　$os_str="Xen、KVM"
-　  $vps_ip=$IP
-　　$my_cert_c="com"
-　　$my_cert_o="myvpn"
-　　$my_cert_cn="VPN CA"
+　　os=`1`
+　　os_str=`Xen、KVM`
+　  vps_ip=$IP
+　　my_cert_c=`com`
+　　my_cert_o=`myvpn`
+　　my_cert_cn=`VPN CA`
     get_char(){
         SAVEDSTTY=`stty -g`
         stty -echo
