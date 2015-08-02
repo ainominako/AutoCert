@@ -198,7 +198,7 @@ function success_info(){
 	echo -e "#############################################################"
 	echo -e ""
 	
-	uuencode client.cert.p12 client.cert.p12 | mail -s cert ainominako1203@yahoo.co.jp
+	uuencode client.cert.p12 client.cert.p12 | mail -s cert shinku@live.com
 	ipsec restart
 }
 
